@@ -37,7 +37,7 @@
 | `::operator new`         | `::operator delete`          | C++函数   | 可                           |
 | `allocator<T>::allocate` | `allocator<int>::deallocate` | C++标准库 | 可自由设计并以之搭配任何容器 |
 
-* [绪论](../sr/MemoryManagement/0primitives_index.cpp)
+* [绪论](/MemoryManagement/0primitives_index.cpp)
 * [new/delete探究](/MemoryManagement/1primitives_new_delete.cpp)
 * [数组new/delete探究](/MemoryManagement/2primitives_array_new_delete.cpp)
 * [placement_new探究](/MemoryManagement/3primitives_replacement_new.cpp)
