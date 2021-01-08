@@ -4,7 +4,7 @@
 
 **向侯捷老师致敬！**
 
-**[vedio](https://www.bilibili.com/video/BV1Kb411B7N8?from=search&seid=2095136970590855889)**
+**[video](https://www.bilibili.com/video/BV1Kb411B7N8?from=search&seid=2095136970590855889)**
 
 #### **Libraries:**
 
