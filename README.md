@@ -37,19 +37,19 @@
 | `::operator new`         | `::operator delete`          | C++函数   | 可                           |
 | `allocator<T>::allocate` | `allocator<int>::deallocate` | C++标准库 | 可自由设计并以之搭配任何容器 |
 
-* [绪论](../src/MemoryManagement/0primitives_index.cpp)
-* [new/delete探究](../src/MemoryManagement/1primitives_new_delete.cpp)
-* [数组new/delete探究](../src/MemoryManagement/2primitives_array_new_delete.cpp)
-* [placement_new探究](../src/MemoryManagement/3primitives_replacement_new.cpp)
-* [operator_new重载](../src/MemoryManagement/4override_operator_new.cpp)
-* [placement_new重载](../src/MemoryManagement/5override_placement_new.cpp)
-* [class allocator_1.0对象内存池](../src/MemoryManagement/6per_class_allocator.cpp)
+* [绪论](../sr/MemoryManagement/0primitives_index.cpp)
+* [new/delete探究](/MemoryManagement/1primitives_new_delete.cpp)
+* [数组new/delete探究](/MemoryManagement/2primitives_array_new_delete.cpp)
+* [placement_new探究](/MemoryManagement/3primitives_replacement_new.cpp)
+* [operator_new重载](/MemoryManagement/4override_operator_new.cpp)
+* [placement_new重载](/MemoryManagement/5override_placement_new.cpp)
+* [class allocator_1.0对象内存池](/MemoryManagement/6per_class_allocator.cpp)
   * `GCC`: 重载`operator new/delete`间隔为`16Bytes`,不重载的间隔`32Bytes`
   * `Clang`: 都是`16Bytes`
-* [class allocator 2.0对象内存池](../src/MemoryManagement/6per_class_allocator_advanced.cpp)
-* [static allocator 3.0对象内存池](../src/MemoryManagement/7static_allocator.cpp)
-* [macro static allocator 4.0对象内存池](../src/MemoryManagement/8macro_static_allocator.cpp)
-* [new handler/default/delete探究](../src/MemoryManagement/9end.cpp)
+* [class allocator 2.0对象内存池](/MemoryManagement/6per_class_allocator_advanced.cpp)
+* [static allocator 3.0对象内存池](/MemoryManagement/7static_allocator.cpp)
+* [macro static allocator 4.0对象内存池](/MemoryManagement/8macro_static_allocator.cpp)
+* [new handler/default/delete探究](/MemoryManagement/9end.cpp)
 
  
 
@@ -84,7 +84,7 @@ class vector{
 };            
 ```
 
-* [GNU2.9-4.9对cookie的优化](../src/MemoryManagement/10pool_alloc.cpp)
+* [GNU2.9-4.9对cookie的优化](/MemoryManagement/10pool_alloc.cpp)
   * `GCC2.9-std::allocator`: 连续申请三个`8Bytes-double`的元素，地址间隔`32Bytes`
   * `GCC4.9-__gnu_cxx::__pool_alloc`:连续申请三个`8Bytes-double`的元素，地址间隔`16Bytes`
 
@@ -101,12 +101,12 @@ class vector{
 > * 分配器面向的用户是**容器**——元素一样大的集合，如果用户直接使用分配器，就必须记住分配的大小。这是因为自主分配的内存不会带`cookie`，而容器的第一个目标参数都会是参数类型，只要`sizeof`一下就可以计算出来所申请的`size`。
 > * `embedded pointers`是成熟的工业级分配器都会使用的`Tips`。
 
-* [GNU2.9的std::alloc源码实现](../src/MemoryManagement/11std::alloc.cpp)
+* [GNU2.9的std::alloc源码实现](/MemoryManagement/11std::alloc.cpp)
 
 > 如果只是为了理解内存分配，其实很多代码都没有用。
 
-* [GNU2.9的std::alloc源码实现简易版](../src/MemoryManagement/11simplified_ver_std::alloc.cpp)
-* [__pool_alloc新型的分配器测试程序](../src/MemoryManagement/12alloc_test.cpp)
+* [GNU2.9的std::alloc源码实现简易版](/MemoryManagement/11simplified_ver_std::alloc.cpp)
+* [__pool_alloc新型的分配器测试程序](/MemoryManagement/12alloc_test.cpp)
   
   * `GCC`： 测试样例`1000`个元素。
     * 标准分配器: 分配`1000`次，得到`24000`个字节
@@ -128,27 +128,27 @@ class vector{
 >
 >   * `_heap_init()`     
 >
->     [_heap_init部分代码](../src/MemoryManagement/13heap_init.cpp)
+>     [_heap_init部分代码](/MemoryManagement/13heap_init.cpp)
 >
 >     * `__sbh_heap_init()`       
 >
->       [__sbh_heap_init部分代码](../src/MemoryManagement/13sbh_heap_init.cpp)
+>       [__sbh_heap_init部分代码](/MemoryManagement/13sbh_heap_init.cpp)
 >
 >   * `_ioinit()`  第一次尝试申请内存共100h
 >
->     [_ioinit部分代码](../src/MemoryManagement/13ioinit.cpp)
+>     [_ioinit部分代码](/MemoryManagement/13ioinit.cpp)
 >
 >     * `_heap_alloc_dbg()`     调试模式下
 >
->       [_heap_alloc_dbg部分代码](../src/MemoryManagement/13heap_alloc_dbg.cpp)
+>       [_heap_alloc_dbg部分代码](/MemoryManagement/13heap_alloc_dbg.cpp)
 >
 >     * `_heap_alloc_base()`  确定小于1024采用SBH小区块分配器
 >
->       [_heap_alloc_base部分代码](../src/MemoryManagement/13heap_alloc_base.cpp)
+>       [_heap_alloc_base部分代码](/MemoryManagement/13heap_alloc_base.cpp)
 >
 >     * `_sbh_alloc_block()`   计算好总共需要分配的内存字节    130h
 >
->       [_sbh_alloc_block部分代码](../src/MemoryManagement/13sbh_alloc_block.cpp)
+>       [_sbh_alloc_block部分代码](/MemoryManagement/13sbh_alloc_block.cpp)
 >
 >     程序第一次申请内存分配是`ioinit()`共申请了`100h`字节，加上调试器模式下结构体大小，以及两个`cookie`(上下`cookie`是为了回收的时候上下合并)：  
 >
@@ -252,8 +252,8 @@ class vector{
 > * `__gnu_cxx::new_allocator`     调用`::operator new/delete`
 > * `__gnu_cxx::malloc_allocator`    直接调用`malloc/free`
 >
-> * `__gnu_cxx::array_allocator`    [部分源代码](../src/MemoryManagement/14array_allocator.cpp)
-> * `__gnu_cxx::debug_allocator`      [部分源代码](../src/MemoryManagement/14debug_allocator.cpp)
+> * `__gnu_cxx::array_allocator`    [部分源代码](/MemoryManagement/14array_allocator.cpp)
+> * `__gnu_cxx::debug_allocator`      [部分源代码](/MemoryManagement/14debug_allocator.cpp)
 
 ##### bitmap_allocator
 
@@ -275,7 +275,7 @@ class vector{
 >
 > 会再增加一个`__mini_vector`，最多64个`entry`，如果超过了区块就会被还给操作系统。
 
-* [ 其他分配器测试程序](../src/MemoryManagement/14test_allocator.cpp)
+* [ 其他分配器测试程序](/MemoryManagement/14test_allocator.cpp)
   * `GCC` 
 
 
